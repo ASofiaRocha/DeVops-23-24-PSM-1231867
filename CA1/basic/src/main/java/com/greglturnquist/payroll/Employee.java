@@ -28,109 +28,110 @@ import javax.persistence.Id;
 @Entity // <1>
 public class Employee {
 
-	private @Id @GeneratedValue Long id; // <2>
-	private String firstName;
-	private String lastName;
-	private String description;
-	private int jobYears;
-	private String email;
+    private @Id
+    @GeneratedValue Long id; // <2>
+    private String firstName;
+    private String lastName;
+    private String description;
+    private int jobYears;
+    private String email;
 
 
-	private Employee() {}
+    private Employee() {
+    }
 
-	public Employee(String firstName, String lastName, String description, int jobYears, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.description = description;
-		this.jobYears = jobYears;
-		this.email = email;
-	}
+    public Employee(String firstName, String lastName, String description, int jobYears, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.description = description;
+        this.jobYears = jobYears;
+        this.email = email;
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Employee employee = (Employee) o;
-		return Objects.equals(id, employee.id) &&
-			Objects.equals(firstName, employee.firstName) &&
-			Objects.equals(lastName, employee.lastName) &&
-			Objects.equals(description, employee.description) &&
-			Objects.equals(jobYears, employee.jobYears) &&
-			Objects.equals(email, employee.email);
-	}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(id, employee.id) &&
+                Objects.equals(firstName, employee.firstName) &&
+                Objects.equals(lastName, employee.lastName) &&
+                Objects.equals(description, employee.description) &&
+                Objects.equals(jobYears, employee.jobYears) &&
+                Objects.equals(email, employee.email);
+    }
 
-	@Override
-	public int hashCode() {
+    @Override
+    public int hashCode() {
 
-		return Objects.hash(id, firstName, lastName, description, jobYears, email);
-	}
+        return Objects.hash(id, firstName, lastName, description, jobYears, email);
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public int getJobYears() {
-		return jobYears;
-	}
+    public int getJobYears() {
+        return jobYears;
+    }
 
-	public void setJobYears(int jobYears) {
-		if (jobYears < 0) {
-			throw new IllegalArgumentException("Job years must be greater than 0");
-		}
-		this.jobYears = jobYears;
-	}
+    public void setJobYears(int jobYears) {
+        if (jobYears < 0) {
+            throw new IllegalArgumentException("Job years must be greater than 0");
+        }
+        this.jobYears = jobYears;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		if (email == null || !email.contains("@")) {
-			throw new IllegalArgumentException("Email must be valid (contain '@').");
-		}
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        if (email == null || !email.contains("@")) {
+            throw new IllegalArgumentException("Email must be valid (contain '@').");
+        }
+        this.email = email;
+    }
 
 
-
-	@Override
-	public String toString() {
-		return "Employee{" +
-			"id=" + id +
-			", firstName='" + firstName + '\'' +
-			", lastName='" + lastName + '\'' +
-			", description='" + description + '\'' +
-			", jobYears='" + jobYears +
-			", email='" + email + '\'' +
-			'}';
-	}
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", description='" + description + '\'' +
+                ", jobYears='" + jobYears +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
 // end::code[]
