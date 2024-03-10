@@ -8,20 +8,20 @@ class EmployeeTest {
 
     @Test
     void testGetJobYears() {
-        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 1);
+        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 1, "frodo@baggins.com");
         assertEquals(1, employee.getJobYears());
     }
 
     @Test
     void testSetJobYears() {
-        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 1);
+        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 1, "frodo@baggins.com");
         employee.setJobYears(2);
         assertEquals(2, employee.getJobYears());
     }
 
     @Test
     void testCreateEmployee() {
-        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 1);
+        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 1, "frodo@baggins.com");
 
         assertEquals("Frodo", employee.getFirstName());
         assertEquals("Baggins", employee.getLastName());
@@ -31,10 +31,18 @@ class EmployeeTest {
 
     @Test
     void testSetJobYearsWithNegativeValue() {
-        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 20);
+        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 20, "frodo@baggins.com");
         assertThrows(IllegalArgumentException.class, () -> {
             employee.setJobYears(-2);
         });
+    }
+
+    @Test
+    void testSetEmail() {
+        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 20, "frodo@baggins.com");
+
+        employee.setEmail("frodo@baggins.com");
+        assertEquals("frodo@baggins.com", employee.getEmail());
     }
 
 }
