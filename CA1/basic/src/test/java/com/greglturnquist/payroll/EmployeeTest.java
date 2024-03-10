@@ -45,4 +45,35 @@ class EmployeeTest {
         assertEquals("frodo@baggins.com", employee.getEmail());
     }
 
+    @Test
+    void testSetEmailWithValidEmail() {
+        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 20, "frodo@baggins.com");
+        employee.setEmail("frodo@baggins.com");
+        assertEquals("frodo@baggins.com", employee.getEmail());
+    }
+
+    @Test
+    void testSetEmailWithNull() {
+        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 20, "frodo@baggins.com");
+        assertThrows(IllegalArgumentException.class, () -> {
+            employee.setEmail(null);
+        });
+    }
+
+    @Test
+    void testSetEmailWithoutAtSymbol() {
+        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 20, "frodo@baggins.com");
+        assertThrows(IllegalArgumentException.class, () -> {
+            employee.setEmail("frodobaggins.com");
+        });
+    }
+
+    @Test
+    void testSetEmailWithEmptyString() {
+        Employee employee = new Employee("Frodo", "Baggins", "ring bearer", 20, "frodo@baggins.com");
+        assertThrows(IllegalArgumentException.class, () -> {
+            employee.setEmail("");
+        });
+    }
+
 }

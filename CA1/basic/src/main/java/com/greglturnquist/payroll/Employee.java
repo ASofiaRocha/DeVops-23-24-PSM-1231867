@@ -113,6 +113,9 @@ public class Employee {
 	}
 
 	public void setEmail(String email) {
+		if (email == null || !email.contains("@")) {
+			throw new IllegalArgumentException("Email must be valid (contain '@').");
+		}
 		this.email = email;
 	}
 
