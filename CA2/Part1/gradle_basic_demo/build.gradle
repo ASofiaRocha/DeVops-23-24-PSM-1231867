@@ -25,8 +25,10 @@ dependencies {
     // Use Apache Log4J for logging
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.2'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.2'
+    implementation 'junit:junit:4.13.1'
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 }
- 
+
 
 // Define the main class for the application
 mainClassName = 'basic_demo.App'
@@ -40,17 +42,16 @@ jar {
         attributes "Main-Class": "basic_demo.App"
     }
 
-   from {
+    from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 
 
-
-task runClient(type:JavaExec, dependsOn: classes){
+task runClient(type: JavaExec, dependsOn: classes) {
     group = "DevOps"
     description = "Launches a chat client that connects to a server on localhost:59001 "
-  
+
     classpath = sourceSets.main.runtimeClasspath
 
     mainClass = 'basic_demo.ChatClientApp'
@@ -58,7 +59,7 @@ task runClient(type:JavaExec, dependsOn: classes){
     args 'localhost', '59001'
 }
 
-task runServer(type:JavaExec, dependsOn: classes){
+task runServer(type: JavaExec, dependsOn: classes) {
     group = "DevOps"
     description = "Launches a chat server."
 
@@ -67,4 +68,12 @@ task runServer(type:JavaExec, dependsOn: classes){
     mainClass = 'basic_demo.ChatServerApp'
 
     args '59001'
+}
+
+task backup(type: Copy) {
+    group = "DevOps"
+    description = "Backs up the chat server log file."
+
+    from 'src/main'
+    into 'backup'
 }
