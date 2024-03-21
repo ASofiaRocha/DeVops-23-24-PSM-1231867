@@ -70,10 +70,20 @@ task runServer(type: JavaExec, dependsOn: classes) {
     args '59001'
 }
 
+
 task backup(type: Copy) {
     group = "DevOps"
     description = "Backs up the chat server log file."
 
     from 'src/main'
     into 'backup'
+}
+
+task zip(type: Zip, dependsOn: backup) {
+    group = "DevOps"
+    description = "Zips the chat server log file."
+
+    from 'src/main'
+    archiveFileName = 'src.zip'
+    destinationDirectory = file('build')
 }
