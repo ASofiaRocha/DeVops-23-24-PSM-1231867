@@ -179,7 +179,7 @@ At the end of the part 1 of this assignment mark your repository with the tag
 ca2-part1.
 ```javascript
 git commit close #6 Close #12 "ca2-part1"
-git tag part1
+git tag ca2- part1
 git push origin part1
 ```
 
