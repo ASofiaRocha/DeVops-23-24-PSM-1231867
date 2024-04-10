@@ -3,12 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DeVops-23-24-PSM-1231867.iml" filepath="$PROJECT_DIR$/.idea/DeVops-23-24-PSM-1231867.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CA1/react-and-spring-data-rest.iml" filepath="$PROJECT_DIR$/CA1/react-and-spring-data-rest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CA1/basic/react-and-spring-data-rest-basic.iml" filepath="$PROJECT_DIR$/CA1/basic/react-and-spring-data-rest-basic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CA1/conditional/react-and-spring-data-rest-conditional.iml" filepath="$PROJECT_DIR$/CA1/conditional/react-and-spring-data-rest-conditional.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CA1/events/react-and-spring-data-rest-events.iml" filepath="$PROJECT_DIR$/CA1/events/react-and-spring-data-rest-events.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CA1/hypermedia/react-and-spring-data-rest-hypermedia.iml" filepath="$PROJECT_DIR$/CA1/hypermedia/react-and-spring-data-rest-hypermedia.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CA1/security/react-and-spring-data-rest-security.iml" filepath="$PROJECT_DIR$/CA1/security/react-and-spring-data-rest-security.iml" />
     </modules>
   </component>
 </project>
