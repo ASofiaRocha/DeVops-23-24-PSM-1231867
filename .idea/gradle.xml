@@ -11,6 +11,14 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/CA2/Part2/react-and-spring-data-rest-basic" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/CA2/Part2/react-and-spring-data-rest-basic" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>

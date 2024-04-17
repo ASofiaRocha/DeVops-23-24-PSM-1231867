@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/CA2/Part1/gradle_basic_demo" />
+    <file type="web" url="file://$PROJECT_DIR$/CA2/Part2/react-and-spring-data-rest-basic" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
