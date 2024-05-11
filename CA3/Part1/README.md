@@ -62,6 +62,8 @@ java -version
 mvn -version
 gradle -version
 ```
+![image1](Versoes.png)
+
 ### Giving permissions to the project:
 ```bash
 chmod +x gradlew
@@ -74,12 +76,13 @@ cd DeVops-23-24-PSM-1231867
 ```
 
 ### For the Spring Boot tutorial basic project:
-
+#### CA1 - Part 1
 ```bash
 cd DeVops-23-24-PSM-1231867/CA1/Part1/spring_boot_tutorial_basic
 ./mvnw clean install
 ./mvnw spring-boot:run
 ```
+![image2](CA1.png)"
 
 ### Open a web browser and navigate to `http://localhost:8080/` to view the project.
 #### To know the IP address of the VM:
@@ -87,6 +90,8 @@ cd DeVops-23-24-PSM-1231867/CA1/Part1/spring_boot_tutorial_basic
 ip addr
 ```
 http://192.168.56.5:8080/
+
+![image3](localhost.png)
 
 ### For the gradle_basic_demo project:
 #### CA2 - Part 1
@@ -96,19 +101,24 @@ cd DeVops-23-24-PSM-1231867/CA2/Part1/gradle_basic_demo
 ./gradlew runServer
 gradle runClient --args="192.168.56.5 59001"
 ```
+![image4](CA2-Part1.png)
+
 #### CA2 - Part 2
 ```bash
 cd DeVops-23-24-PSM-1231867/CA2/Part2/gradle_basic_demo
 ./gradlew build
 ./gradlew bootRun
 ```
+![imagem5](CA2-Part2.png)
 
 ### Open a web browser and navigate to `http://localhost:8080/` to view the project.
 http://192.168.56.5:8080/
 
 ## Issues Encountered
-My version of Ubuntu was not up-to-date, so I had to update it, after blue screen of death, the computer shut down and I had to restart the VM.
+My version of VirtualBox was old, so I had to update it, after blue screen of death, the computer shut down and I had to restart the VM.
 I also had to install the necessary dependencies to run the projects. 
+
+![image6](VBUp.png)
 
 ## Accessing Web Projects
 The web projects can be accessed by navigating to `http://localhost:8080/` in a web browser.
@@ -129,7 +139,7 @@ The repository was tagged at the following points:
 git add .
 git commit -m "README CA3 - Part 1"
 git push origin main
-git tag -a ca3-part1 -m "Complete CA3 Part 1"
+git tag -a ca3-part1 -m "Complete CA3 Part 1 Close #22"
 git push origin --tags
 ```
 ## Conclusion
