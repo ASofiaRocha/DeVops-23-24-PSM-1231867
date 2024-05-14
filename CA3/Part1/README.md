@@ -1,4 +1,4 @@
-# CA3 - Part 1
+-11# CA3 - Part 1
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -78,7 +78,7 @@ cd DeVops-23-24-PSM-1231867
 ### For the Spring Boot tutorial basic project:
 #### CA1 - Part 1
 ```bash
-cd DeVops-23-24-PSM-1231867/CA1/Part1/spring_boot_tutorial_basic
+cd DeVops-23-24-PSM-1231867/CA1/basic
 ./mvnw clean install
 ./mvnw spring-boot:run
 ```
@@ -102,14 +102,16 @@ cd DeVops-23-24-PSM-1231867/CA2/Part1/gradle_basic_demo
 gradle runClient --args="192.168.56.5 59001"
 ```
 ![image4](CA2-Part1.png)
-
+![imagem5](CA2-Part1_2.png)
 #### CA2 - Part 2
 ```bash
-cd DeVops-23-24-PSM-1231867/CA2/Part2/gradle_basic_demo
+cd DeVops-23-24-PSM-1231867/CA2/Part2/react-and-spring-data-rest
 ./gradlew build
 ./gradlew bootRun
 ```
-![imagem5](CA2-Part2.png)
+![imagem6](CA2-Part2.png)
+
+![imagem7](CA2-Part2_2.png)
 
 ### Open a web browser and navigate to `http://localhost:8080/` to view the project.
 http://192.168.56.5:8080/
@@ -118,7 +120,7 @@ http://192.168.56.5:8080/
 My version of VirtualBox was old, so I had to update it, after blue screen of death, the computer shut down and I had to restart the VM.
 I also had to install the necessary dependencies to run the projects. 
 
-![image6](VBUp.png)
+![image8](VBUp.png)
 
 ## Accessing Web Projects
 The web projects can be accessed by navigating to `http://localhost:8080/` in a web browser.
