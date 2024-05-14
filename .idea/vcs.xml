@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/CA2/Part1/gradle_basic_demo" vcs="" />
+    <mapping directory="$PROJECT_DIR$/CA3/Part2/vagrant-multi-spring-tut-demo" vcs="Git" />
   </component>
 </project>

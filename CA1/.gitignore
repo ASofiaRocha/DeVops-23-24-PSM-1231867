@@ -189,4 +189,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+.vagrant
+*.war
+
 # End of https://www.toptal.com/developers/gitignore/api/react,maven,intellij,windows
