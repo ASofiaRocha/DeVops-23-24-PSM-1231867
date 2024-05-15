@@ -1,4 +1,4 @@
--11# CA3 - Part 1
+# CA3 - Part 1
 
 ## Table of Contents
 1. [Introduction](#introduction)
