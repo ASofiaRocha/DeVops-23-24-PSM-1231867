@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update -y
     sudo apt-get install -y iputils-ping avahi-daemon libnss-mdns unzip \
-        openjdk-11-jdk-headless
+        openjdk-17-jdk-headless
     # ifconfig
   SHELL
 
@@ -64,12 +64,13 @@ Vagrant.configure("2") do |config|
       # uncomment tomcat-users and add manager-gui to tomcat user
 
       # Change the following command to clone your own repository!
-      git clone https://bitbucket.org/pssmatos/tut-basic-gradle.git
-      cd tut-basic-gradle
+      git clone https://github.com/ASofiaRocha/DeVops-23-24-PSM-1231867.git
+      cd DeVops-23-24-PSM-1231867/CA2/Part2/react-and-spring-data-rest-basic
       chmod u+x gradlew
       ./gradlew clean build
+      ./gradlew bootRun
       # To deploy the war file to tomcat9 do the following command:
-      sudo cp ./build/libs/basic-0.0.1-SNAPSHOT.war /var/lib/tomcat9/webapps
+      # sudo cp ./build/libs/basic-0.0.1-SNAPSHOT.war /var/lib/tomcat9/webapps
     SHELL
   end
 end
