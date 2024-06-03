@@ -141,7 +141,7 @@ After completing the setup, tag your repository with the appropriate tag and pus
 
 ```javascript
 git add .
-git commit -m "Containerized environment with Docker. Closes #22"
+git commit -m "Containerized environment with Docker. Closes #31"
 git push origin main
 git tag -a ca4-part2 -m "Complete CA4 Part 2"
 git push origin --tags
