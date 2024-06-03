@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Part2.react-and-spring-data-rest-basic:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Part2_react_and_spring_data_rest_basic_jar</output-path>
+    <root id="archive" name="Part2.react-and-spring-data-rest-basic.jar" />
+  </artifact>
+</component>
