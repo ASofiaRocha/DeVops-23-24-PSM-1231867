@@ -15,11 +15,9 @@ pipeline {
         }
         stage('Assemble') {
             steps {
-                dir('CA2/Part2/react-and-spring-data-rest-basic') {
-                    echo 'Assembling...'
-                    sh 'chmod +x gradlew'
-                    sh './gradlew clean assemble'
-                }
+                echo 'Assembling...'
+                sh 'chmod +x gradlew'
+                sh './gradlew clean assemble'
             }
         }
         stage('Test') {
