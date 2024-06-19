@@ -49,7 +49,7 @@ pipeline {
                     script {
                         def dockerhubToken = credentials('CA5')
                         def imageName = "${dockerhubToken_USR}/CA5-jenkins-docker-react-basic"
-                        dockerImage = docker.build("${imageName}:${BUILD_NUMBER}", "-f Dockerfile .")
+                        dockerImage = docker.build("${imageName}:${env.BUILD_NUMBER}", "-f Dockerfile .")
                     }
                 }
             }
@@ -60,7 +60,7 @@ pipeline {
                 echo 'Logging in to Docker Hub...'
                 script {
                     def dockerhubToken = credentials('CA5')
-                    sh 'echo ${dockerhubToken_PSW} | docker login -u ${dockerhubToken_USR} --password-stdin'
+                    sh "echo ${dockerhubToken_PSW} | docker login -u ${dockerhubToken_USR} --password-stdin"
                 }
             }
         }
@@ -71,7 +71,7 @@ pipeline {
                 script {
                     def dockerhubToken = credentials('CA5')
                     def imageName = "${dockerhubToken_USR}/CA5-jenkins-docker-react-basic"
-                    sh 'docker push ${imageName}:${BUILD_NUMBER}'
+                    sh "docker push ${imageName}:${env.BUILD_NUMBER}"
                 }
             }
         }
@@ -92,7 +92,7 @@ pipeline {
             script {
                 def dockerhubToken = credentials('CA5')
                 def imageName = "${dockerhubToken_USR}/CA5-jenkins-docker-react-basic"
-                sh 'docker rmi ${imageName}:${BUILD_NUMBER}'
+                sh "docker rmi ${imageName}:${env.BUILD_NUMBER}"
                 sh 'docker logout'
             }
         }
