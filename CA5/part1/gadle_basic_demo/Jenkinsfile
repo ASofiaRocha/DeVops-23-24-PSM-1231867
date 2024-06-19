@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out...'
+                git branch: 'main', credentialsId: 'jenkins', url: 'https://github.com/ASofiaRocha/DeVops-23-24-PSM-1231867.git'
+            }
+        }
+        stage('Assemble') {
+            steps {
+                dir('CA2/Part1/gradle_basic_demo') {
+                    echo 'Assembling...'
+                    sh 'chmod +x gradlew'
+                    sh './gradlew clean assemble'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('CA2/Part1/gradle_basic_demo') {
+                    echo 'Testing...'
+                    sh './gradlew test'
+                    junit 'build/test-results/test/*.xml'
+                }
+            }
+        }
+        stage('Archive') {
+            steps {
+                dir('CA2/Part1/gradle_basic_demo') {
+                    echo 'Archiving...'
+                    archiveArtifacts 'build/distributions/*'
+                }
+            }
+        }
+    }
+}
