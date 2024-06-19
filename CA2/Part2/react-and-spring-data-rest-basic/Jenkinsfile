@@ -1,92 +1,38 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKERHUB_TOKEN = credentials('CA5')
-        IMAGE_NAME = "${env.DOCKERHUB_TOKEN_USR}/CA5-jenkins-docker-react-basic"
-    }
-
     stages {
         stage('Checkout') {
             steps {
                 echo 'Checking out...'
-                git branch: 'main', url: 'https://github.com/ASofiaRocha/DeVops-23-24-PSM-1231867.git'
+                git branch: 'main', credentialsId: 'jenkins', url: 'https://github.com/ASofiaRocha/DeVops-23-24-PSM-1231867.git'
             }
         }
-
         stage('Assemble') {
             steps {
-                dir('CA2/Part2/react-and-spring-data-rest-basic') {
+                dir('CA2/Part1/gradle_basic_demo') {
                     echo 'Assembling...'
                     sh 'chmod +x gradlew'
                     sh './gradlew clean assemble'
                 }
             }
         }
-
         stage('Test') {
             steps {
-                dir('CA2/Part2/react-and-spring-data-rest-basic') {
+                dir('CA2/Part1/gradle_basic_demo') {
                     echo 'Testing...'
                     sh './gradlew test'
                     junit 'build/test-results/test/*.xml'
                 }
             }
         }
-
-        stage('Javadoc') {
+        stage('Archive') {
             steps {
-                dir('CA2/Part2/react-and-spring-data-rest-basic') {
-                    echo 'Generating Javadocs...'
-                    sh './gradlew javadoc'
-                    publishHTML(target: [
-                            reportDir  : 'build/docs/javadoc',
-                            reportFiles: 'index.html',
-                            reportName : 'Javadoc'])
-                }
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                dir('CA2/Part2/react-and-spring-data-rest-basic') {
-                    echo 'Building Docker Image...'
-                    script {
-                        dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}", "-f Dockerfile .")
-                    }
-                }
-            }
-        }
-
-        stage('Docker Login') {
-            steps {
-                echo 'Logging in to Docker Hub...'
-                sh 'echo $DOCKERHUB_TOKEN_PSW | docker login -u $DOCKERHUB_TOKEN_USR --password-stdin'
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                echo 'Pushing Docker Image...'
-                sh 'docker push $IMAGE_NAME:$BUILD_NUMBER'
-            }
-        }
-
-        stage('Archiving') {
-            steps {
-                dir('CA2/Part2/react-and-spring-data-rest-basic') {
+                dir('CA2/Part1/gradle_basic_demo') {
                     echo 'Archiving...'
-                    archiveArtifacts 'build/libs/*'
+                    archiveArtifacts 'build/distributions/*'
                 }
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Cleaning up...'
-            sh 'docker rmi $IMAGE_NAME:$BUILD_NUMBER'
-            sh 'docker logout'
         }
     }
 }
