@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKERHUB_TOKEN = credentials('CA5')
+        IMAGE_NAME = "${env.DOCKERHUB_TOKEN_USR}/CA5-jenkins-docker-react-basic"
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -47,9 +52,7 @@ pipeline {
                 dir('CA2/Part2/react-and-spring-data-rest-basic') {
                     echo 'Building Docker Image...'
                     script {
-                        def dockerhubToken = credentials('CA5')
-                        def imageName = "${dockerhubToken_USR}/CA5-jenkins-docker-react-basic"
-                        dockerImage = docker.build("${imageName}:${env.BUILD_NUMBER}", "-f Dockerfile .")
+                        dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}", "-f Dockerfile .")
                     }
                 }
             }
@@ -58,21 +61,14 @@ pipeline {
         stage('Docker Login') {
             steps {
                 echo 'Logging in to Docker Hub...'
-                script {
-                    def dockerhubToken = credentials('CA5')
-                    sh "echo ${dockerhubToken_PSW} | docker login -u ${dockerhubToken_USR} --password-stdin"
-                }
+                sh 'echo $DOCKERHUB_TOKEN_PSW | docker login -u $DOCKERHUB_TOKEN_USR --password-stdin'
             }
         }
 
         stage('Push Docker Image') {
             steps {
                 echo 'Pushing Docker Image...'
-                script {
-                    def dockerhubToken = credentials('CA5')
-                    def imageName = "${dockerhubToken_USR}/CA5-jenkins-docker-react-basic"
-                    sh "docker push ${imageName}:${env.BUILD_NUMBER}"
-                }
+                sh 'docker push $IMAGE_NAME:$BUILD_NUMBER'
             }
         }
 
@@ -89,12 +85,8 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
-            script {
-                def dockerhubToken = credentials('CA5')
-                def imageName = "${dockerhubToken_USR}/CA5-jenkins-docker-react-basic"
-                sh "docker rmi ${imageName}:${env.BUILD_NUMBER}"
-                sh 'docker logout'
-            }
+            sh 'docker rmi $IMAGE_NAME:$BUILD_NUMBER'
+            sh 'docker logout'
         }
     }
 }
