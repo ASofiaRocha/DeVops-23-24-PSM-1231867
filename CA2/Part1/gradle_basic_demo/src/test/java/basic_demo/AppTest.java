@@ -1,10 +1,10 @@
 package basic_demo;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class AppTest {
+public class AppTest {
 
 
     @Test
