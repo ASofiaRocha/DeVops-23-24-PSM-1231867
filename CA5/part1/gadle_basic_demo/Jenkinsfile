@@ -10,9 +10,11 @@ pipeline {
         }
         stage('Assemble') {
             steps {
-                echo 'Assembling...'
-                sh 'chmod +x gradlew'
-                sh './gradlew clean assemble'
+                dir('CA2/Part1/gradle_basic_demo') {
+                    echo 'Assembling...'
+                    sh 'chmod +x gradlew'
+                    sh './gradlew clean assemble'
+                }
             }
         }
         stage('Test') {
