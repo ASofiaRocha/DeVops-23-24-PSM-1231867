@@ -22,7 +22,7 @@ pipeline {
                 dir('CA2/Part1/gradle_basic_demo') {
                     echo 'Testing...'
                     sh './gradlew test'
-                    junit 'build/test-results/test/.xml'
+                    junit 'build/test-results/test/*.xml'
                 }
             }
         }
