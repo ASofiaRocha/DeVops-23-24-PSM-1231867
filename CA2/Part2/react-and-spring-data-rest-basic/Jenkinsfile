@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+            DOCKERHUB_TOKEN = credentials('CA5')
+            IMAGE_NAME = "${env.DOCKERHUB_TOKEN_USR}/CA5-jenkins-docker-react-basic"
+        }
+
     stages {
         stage('Checkout') {
             steps {
@@ -10,7 +15,7 @@ pipeline {
         }
         stage('Assemble') {
             steps {
-                dir('CA2/Part1/gradle_basic_demo') {
+                dir('CA2/Part2/react-and-spring-data-rest-basic') {
                     echo 'Assembling...'
                     sh 'chmod +x gradlew'
                     sh './gradlew clean assemble'
@@ -19,7 +24,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                dir('CA2/Part1/gradle_basic_demo') {
+                dir('CA2/Part2/react-and-spring-data-rest-basic') {
                     echo 'Testing...'
                     sh './gradlew test'
                     junit 'build/test-results/test/*.xml'
@@ -28,7 +33,7 @@ pipeline {
         }
         stage('Archive') {
             steps {
-                dir('CA2/Part1/gradle_basic_demo') {
+                dir('CA2/Part2/react-and-spring-data-rest-basic') {
                     echo 'Archiving...'
                     archiveArtifacts 'build/distributions/*'
                 }
